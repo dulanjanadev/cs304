@@ -1,24 +1,19 @@
 const express = require('express');
+const distributionsController = require('../controllers/distributions')
+
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send(distributions);
-});
+router.post('/', distributionsController.create);
 
-router.post('/', (req, res) => {
+router.get('/active', distributionsController.findAllActive);
 
-});
+router.get('/inactive', distributionsController.findAllInactive);
 
-router.put('/:id', (req, res) => {
-    
-});
+router.get('/:id', distributionsController.findbyID);
 
-router.delete('/:id', (req, res) => {
-    
-});
+router.put('/:id', distributionsController.update);
 
-router.get('/:id', (req, res) => {
+router.put('/delete/:id', distributionsController.delete);
 
-});
 
 module.exports = router;

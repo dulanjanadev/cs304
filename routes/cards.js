@@ -1,24 +1,18 @@
 const express = require('express');
+const cardsController = require('../controllers/cards')
+
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send(cards);
-});
+router.post('/', cardsController.create);
 
-router.post('/', (req, res) => {
+router.get('/active', cardsController.findAllActive);
 
-});
+router.get('/inactive', cardsController.findAllInactive);
 
-router.put('/:id', (req, res) => {
-    
-});
+router.get('/:id', cardsController.findbyID);
 
-router.delete('/:id', (req, res) => {
-    
-});
+router.put('/:id', cardsController.update);
 
-router.get('/:id', (req, res) => {
-
-});
+router.put('/delete/:id', cardsController.delete);
 
 module.exports = router;

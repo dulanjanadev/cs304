@@ -47,7 +47,6 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     is_enabled: {
-      defaultValue: true,
       type: DataTypes.BOOLEAN
     }
   }, {

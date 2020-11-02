@@ -1,24 +1,18 @@
 const express = require('express');
+const instController = require('../controllers/institutes')
+
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send(institutes);
-});
+router.post('/', instController.create);
 
-router.post('/', (req, res) => {
+router.get('/active', instController.findAllActive);
 
-});
+router.get('/inactive', instController.findAllInactive);
 
-router.put('/:id', (req, res) => {
-    
-});
+router.get('/:id', instController.findbyID);
 
-router.delete('/:id', (req, res) => {
-    
-});
+router.put('/:id', instController.update);
 
-router.get('/:id', (req, res) => {
-
-});
+router.put('/delete/:id', instController.delete);
 
 module.exports = router;

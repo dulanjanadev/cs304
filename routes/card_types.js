@@ -9,16 +9,10 @@ router.get('/active', cardTypesController.findAllActive);
 
 router.get('/inactive', cardTypesController.findAllInactive);
 
-router.put('/:id', (req, res) => {
-    
-});
+router.get('/:id', cardTypesController.findbyID);
 
-router.delete('/:id', (req, res) => {
-    
-});
+router.put('/:id', cardTypesController.update);
 
-router.get('/:id', (req, res) => {
-
-});
+router.put('/delete/:id', cardTypesController.delete);
 
 module.exports = router;

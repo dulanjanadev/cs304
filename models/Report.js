@@ -43,7 +43,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     prepared_date: DataTypes.DATE,
     is_enabled: {
-      defaultValue: true,
       type: DataTypes.BOOLEAN
     }
   }, {

@@ -55,8 +55,7 @@ module.exports = {
         onDelete: 'RESTRICT'
       },
       is_enabled: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,

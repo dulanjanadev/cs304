@@ -33,6 +33,24 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'RESTRICT'
       });
 
+      // Head belongsTo an Institute
+      // Employee.hasOne(models.Institute, {
+      //   foreignKey: 'head_ref_no',
+      //   as: 'head'
+      // });
+
+      // ICP belongsTo an Institute
+      // Employee.hasOne(models.Institute, {
+      //   foreignKey: 'icp_ref_no',
+      //   as: 'icp'
+      // });
+
+      // RPO belongsTo an Institute
+      // Employee.hasOne(models.Institute, {
+      //   foreignKey: 'rpo_ref_no',
+      //   as: 'rpo'
+      // });
+
       // Employee hasMany Cards
       Employee.hasMany(models.Card, {
         foreignKey: 'emp_ref_no',
@@ -61,7 +79,6 @@ module.exports = (sequelize, DataTypes) => {
     emp_start_date: DataTypes.DATE,
     emp_end_date: DataTypes.STRING,
     is_enabled: {
-      defaultValue: true,
       type: DataTypes.BOOLEAN
     }
   }, {

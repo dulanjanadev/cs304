@@ -1,24 +1,18 @@
 const express = require('express');
+const distCardsController = require('../controllers/dist_cards');
+
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send(distributioncards);
-});
+router.post('/', distCardsController.create);
 
-router.post('/', (req, res) => {
+router.get('/active', distCardsController.findAllActive);
 
-});
+router.get('/inactive', distCardsController.findAllInactive);
 
-router.put('/:id', (req, res) => {
-    
-});
+router.get('/:id', distCardsController.findbyID);
 
-router.delete('/:id', (req, res) => {
-    
-});
+router.put('/:id', distCardsController.update);
 
-router.get('/:id', (req, res) => {
-
-});
+router.put('/delete/:id', distCardsController.delete);
 
 module.exports = router;

@@ -27,9 +27,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     type: DataTypes.STRING,
-    description: DataTypes.STRING,
+    description: {
+      defaultValue: "not provided",
+      type: DataTypes.STRING
+    },
     is_enabled: {
-      defaultValue: true,
       type: DataTypes.BOOLEAN
     }
   }, {

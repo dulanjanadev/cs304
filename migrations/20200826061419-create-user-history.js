@@ -17,8 +17,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       is_enabled: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true
+        type: Sequelize.BOOLEAN
       },
       description: {
         type: Sequelize.STRING

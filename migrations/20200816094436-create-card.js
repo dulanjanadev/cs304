@@ -30,7 +30,6 @@ module.exports = {
         onDelete: 'RESTRICT'
       },
       is_background: {
-        defaultValue: false,
         type: Sequelize.BOOLEAN
       },
       purchased_date: {
@@ -51,8 +50,7 @@ module.exports = {
         onDelete: 'RESTRICT'
       },
       is_enabled: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,

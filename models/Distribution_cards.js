@@ -25,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     reading: DataTypes.DOUBLE,
     dose: DataTypes.DOUBLE,
     is_enabled: {
-      defaultValue: true,
       type: DataTypes.BOOLEAN
     }
   }, {

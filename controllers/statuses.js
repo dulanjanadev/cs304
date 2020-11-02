@@ -9,29 +9,35 @@ exports.create = (req, res) => {
   // Validate request
   if (!req.body.id) {
     res.status(400).send({
-      message: "Id must be added"
+      message: "You must provide an ID"
     });
-    return;
+  } else {
+    if (!req.body.name) {
+      res.status(400).send({
+        message: "You must provide a name"
+      });
+    } else {
+      // Create a Role
+      const status = {
+        id: req.body.id,
+        name: req.body.name,
+        description: req.body.description,
+        is_enabled: req.body.is_enabled ? req.body.is_enabled : false
+      };
+      
+      // Save Status in the database
+      Status.create(status)
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: err.message || "Some error occurred while creating the Status."
+        });
+      });
+    }
   }
 
-  // Create a Status
-  const status = {
-    id: req.body.id,
-    name: req.body.name,
-    description: req.body.description,
-    is_enabled: req.body.enabled ? req.body.enabled : true
-  };
-
-  // Save Status in the database
-  Status.create(status)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while creating the Status."
-      });
-    });
 };
 
 // Retrieve all ACTIVE STATUSES from the database
@@ -40,7 +46,7 @@ exports.findAllActive = (req, res) => {
   Status.findAll({
     where: {
       is_enabled: true
-    }
+    },
   }, {
     include: ["users"]
   })
@@ -49,7 +55,7 @@ exports.findAllActive = (req, res) => {
   })
   .catch(err => {
     res.status(500).send({
-      message: err.message || "Some error occurred while retrieving Status"
+      message: err.message || "Some error occurred while retrieving Statuses"
     });
   });
 };
@@ -57,7 +63,7 @@ exports.findAllActive = (req, res) => {
 // Retrieve all INACTIVE(Deleted) STATUS from the database
 exports.findAllInactive = (req, res) => {
   
-    Status.findAll({
+  Status.findAll({
     where: {
       is_enabled: false
     }
@@ -69,7 +75,7 @@ exports.findAllInactive = (req, res) => {
   })
   .catch(err => {
     res.status(500).send({
-      message: err.message || "Some error occurred while retrieving Status"
+      message: err.message || "Some error occurred while retrieving Statuses"
     });
   });
 };

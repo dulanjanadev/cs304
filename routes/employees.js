@@ -1,24 +1,18 @@
 const express = require('express');
+const employeeController = require('../controllers/employees')
+
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send(employees);
-});
+router.post('/', employeeController.create);
 
-router.post('/', (req, res) => {
+router.get('/active', employeeController.findAllActive);
 
-});
+router.get('/inactive', employeeController.findAllInactive);
 
-router.put('/:id', (req, res) => {
-    
-});
+router.get('/:ref_no', employeeController.findbyID);
 
-router.delete('/:id', (req, res) => {
-    
-});
+router.put('/:ref_no', employeeController.update);
 
-router.get('/:id', (req, res) => {
-
-});
+router.put('/delete/:ref_no', employeeController.delete);
 
 module.exports = router;

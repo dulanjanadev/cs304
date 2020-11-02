@@ -73,7 +73,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     send_date: DataTypes.DATE,
-    received_date: DataTypes.DATE,
     distribution_period: DataTypes.STRING,
     exposure_start_date: DataTypes.DATE,
     exposure_end_date: DataTypes.DATE,
@@ -83,9 +82,10 @@ module.exports = (sequelize, DataTypes) => {
     processed_date: DataTypes.DATE,
     background_dose: DataTypes.DOUBLE,
     method_used: DataTypes.STRING,
+    no_of_cards_sent: DataTypes.INTEGER,
+    no_of_cards_returned: DataTypes.INTEGER,
     remarks: DataTypes.STRING,
     is_enabled: {
-      defaultValue: true,
       type: DataTypes.BOOLEAN
     },
     

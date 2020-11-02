@@ -13,7 +13,10 @@ router.get('/active', rolesController.findAllActive);
 router.get('/inactive', rolesController.findAllInactive);
 
 // find a Role by id
-router.get('/:id', rolesController.findOne);
+router.get('/:id', rolesController.findbyID);
+
+// Find all Roles with an attribute otherthan the is_enabled...
+// router.get('/', rolesController.findbyName);
 
 // update a role with an id
 router.put('/:id', rolesController.update);

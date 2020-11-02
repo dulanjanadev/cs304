@@ -9,16 +9,10 @@ router.get('/active', userController.findAllActive);
 
 router.get('/inactive', userController.findAllInactive);
 
-router.put('/:id', (req, res) => {
-    
-});
+router.get('/:id', userController.findbyID);
 
-router.delete('/:id', (req, res) => {
-    
-});
+router.put('/:id', userController.update);
 
-router.get('/:id', (req, res) => {
-
-});
+router.put('/delete/:id', userController.delete);
 
 module.exports = router;

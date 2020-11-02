@@ -1,24 +1,18 @@
 const express = require('express');
+const reportControllers = require('../controllers/reports');
+
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send(reports);
-});
+router.post('/', reportControllers.create);
 
-router.post('/', (req, res) => {
+router.get('/active', reportControllers.findAllActive);
 
-});
+router.get('/inactive', reportControllers.findAllInactive);
 
-router.put('/:id', (req, res) => {
-    
-});
+router.get('/:id', reportControllers.findbyID);
 
-router.delete('/:id', (req, res) => {
-    
-});
+router.put('/:id', reportControllers.update);
 
-router.get('/:id', (req, res) => {
-
-});
+router.put('/delete/:id', reportControllers.delete);
 
 module.exports = router;

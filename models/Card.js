@@ -47,13 +47,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     is_background: {
-      defaultValue: false,
       type: DataTypes.BOOLEAN
     },
     purchased_date: DataTypes.DATE,
     description: DataTypes.STRING,
     is_enabled: {
-      defaultValue: true,
       type: DataTypes.BOOLEAN
     }
   }, {

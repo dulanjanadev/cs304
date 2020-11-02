@@ -21,9 +21,6 @@ module.exports = {
       send_date: {
         type: Sequelize.DATE
       },
-      received_date: {
-        type: Sequelize.DATE
-      },
       distribution_period: {
         type: Sequelize.STRING
       },
@@ -93,12 +90,13 @@ module.exports = {
         type: Sequelize.DOUBLE
       },
       method_used: Sequelize.STRING,
+      no_of_cards_sent: Sequelize.INTEGER,
+      no_of_cards_returned: Sequelize.INTEGER,
       remarks: {
         type: Sequelize.STRING
       },
       is_enabled: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true
+        type: Sequelize.BOOLEAN
       },
       status_id: {
         allowNull: true,
